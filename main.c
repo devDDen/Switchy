@@ -24,10 +24,10 @@ Settings settings = {
 
 
 int main(int argc, char** argv) {
-	if (argc > 1 && argv[1] == "nopopup") {
-		settings.popup = FALSE;
+	if (argc > 1 && argv[1] == "--popup" && GetOSVersion() >= 10) {
+		settings.popup = TRUE;
 	} else {
-		settings.popup = GetOSVersion() >= 10;
+		settings.popup = FALSE;
 	}
 
 	HANDLE hMutex = CreateMutex(0, 0, "Switchy");
