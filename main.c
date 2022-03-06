@@ -80,7 +80,7 @@ LRESULT CALLBACK LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam) {
 
 		if (key->vkCode == VK_CAPITAL) {
 			if (wParam == WM_KEYDOWN) {
-				if (GetKeyState(settings.modifier)) {
+				if (GetKeyState(settings.modifier) & 0x8000) {
 					UnhookWindowsHookEx(hHook);
 					keybd_event(VK_CAPITAL, 0x3a, 0, 0);
 					keybd_event(VK_CAPITAL, 0x3a, KEYEVENTF_KEYUP, 0);
