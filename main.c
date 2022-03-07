@@ -24,6 +24,8 @@ Settings settings = {
 
 
 int main(int argc, char** argv) {
+	ShowWindow(GetConsoleWindow(), SW_HIDE);
+
 	if (argc > 1 && argv[1] == "--popup" && GetOSVersion() >= 10) {
 		settings.popup = TRUE;
 	} else {
